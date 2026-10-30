@@ -1,0 +1,2296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The ArtLogic | Candidate Profile</title>
+    <style>
+        :root {
+            --ink: #28264a;
+            --muted: #6f6b91;
+            --violet: #5f4bd8;
+            --lav: #e9e1ff;
+            --pink: #ffe0e6;
+            --peach: #ffe8d8;
+            --mint: #d9f5e8;
+            --blue: #dceeff;
+            --yellow: #fff2c9;
+            --line: #dcd3f1
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            font: 15px/1.55 Inter, "Segoe UI", Arial, sans-serif;
+            color: var(--ink);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #f1eaff 0%, #fff0f3 34%, #e9f5ff 68%, #fdf0df 100%)
+        }
+
+        body:before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -3;
+            background-image: radial-gradient(#b8a8e4 1.15px, transparent 1.5px);
+            background-size: 17px 17px;
+            opacity: .48
+        }
+
+        body:after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            pointer-events: none;
+            background: linear-gradient(125deg, #f4eaff99, #ffeef299 36%, #e9f5ff99 68%, #fff1dc99)
+        }
+
+        .decor {
+            position: fixed;
+            z-index: -1;
+            pointer-events: none;
+            opacity: .96
+        }
+
+        .dots {
+            width: 180px;
+            height: 150px;
+            display: grid;
+            grid-template-columns: repeat(4, 22px);
+            gap: 12px;
+            transform: rotate(-30deg)
+        }
+
+        .dots i {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #ff8f99;
+            box-shadow: inset -2px -3px 0 #e86f861f
+        }
+
+        .dots.blue i {
+            background: #83c5ff
+        }
+
+        .stripe {
+            width: 190px;
+            height: 145px;
+            display: flex;
+            gap: 9px;
+            transform: rotate(-25deg)
+        }
+
+        .stripe i {
+            height: 145px;
+            width: 12px;
+            border-radius: 99px;
+            background: #b39ce8
+        }
+
+        .topdots {
+            top: 14px;
+            left: calc(50% - 670px)
+        }
+
+        .rightdots {
+            right: -18px;
+            top: 57%
+        }
+
+        .bottomstripe {
+            bottom: -43px;
+            left: 35px
+        }
+
+        .topstripe {
+            right: 30px;
+            top: -94px
+        }
+
+        .triangles {
+            position: fixed;
+            right: 16%;
+            bottom: 2%;
+            display: flex;
+            gap: 12px;
+            transform: rotate(24deg);
+            z-index: -1;
+            opacity: .8
+        }
+
+        .triangles i {
+            width: 0;
+            height: 0;
+            border-top: 18px solid transparent;
+            border-bottom: 18px solid transparent;
+            border-left: 31px solid #ffbf8e
+        }
+
+        .wrap {
+            width: min(900px, calc(100% - 32px));
+            margin: 32px auto 60px
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 0 0 20px
+        }
+
+        .logo {
+            height: 46px;
+            width: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex: none
+        }
+
+        .logo img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 46px;
+            object-fit: contain;
+            object-position: left center;
+            border-radius: 0;
+            box-shadow: none
+        }
+
+        .brand strong {
+            display: block;
+            font-size: 15px;
+            letter-spacing: .09em
+        }
+
+        .brand small {
+            display: block;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .15em;
+            color: var(--muted)
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #ffffff70;
+            border-radius: 26px;
+            padding: 35px 38px;
+            color: #fff;
+            background: linear-gradient(115deg, #3151a2 0%, #152f80 53%, #2f5be2 100%);
+            box-shadow: 0 18px 48px #5b45a82b
+        }
+
+        .hero:before {
+            content: "";
+            position: absolute;
+            width: 310px;
+            height: 310px;
+            right: -70px;
+            top: -160px;
+            border: 1px solid #ffffff45;
+            border-radius: 50%;
+            box-shadow: 0 0 0 24px #ffffff12, 0 0 0 50px #ffffff0b, 0 0 0 78px #ffffff08
+        }
+
+        .hero:after {
+            content: none
+        }
+
+        .eyebrow {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .19em;
+            font-weight: 800;
+            color: #e4eafc
+        }
+
+        .hero h1 {
+            font-size: clamp(30px, 5vw, 43px);
+            letter-spacing: -.045em;
+            line-height: 1.08;
+            margin: 12px 0 13px;
+            max-width: 610px
+        }
+
+        .hero p {
+            margin: 0;
+            max-width: 620px;
+            color: #f5efff
+        }
+
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 23px
+        }
+
+        .meta span {
+            font-size: 12px;
+            padding: 7px 11px;
+            border: 1px solid #ffffff3d;
+            border-radius: 99px;
+            background: #ffffff17;
+            color: #fff
+        }
+
+        .progress {
+            height: 5px;
+            background: #d7c9f2;
+            border-radius: 99px;
+            margin: 18px 2px 0;
+            overflow: hidden
+        }
+
+        .progress div {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, #f98ea7, #ffca87, #9de5cc);
+            transition: width .2s
+        }
+
+        .card {
+            margin-top: 18px;
+            padding: 28px;
+            background: linear-gradient(135deg, #fff0f5 0%, #f4efff 50%, #eef7ff 100%);
+            border: 1px solid #ffffffc9;
+            border-radius: 21px;
+            box-shadow: 0 10px 34px #51418d13;
+            position: relative;
+            overflow: hidden
+        }
+
+        .card:nth-of-type(2) {
+            background: linear-gradient(130deg, #fff0df, #ffebf1 52%, #f2eaff)
+        }
+
+        .card:nth-of-type(3) {
+            background: linear-gradient(125deg, #e4f8f0, #e9f4ff 55%, #f5eaff)
+        }
+
+        .card:after {
+            content: "";
+            position: absolute;
+            right: -35px;
+            top: -40px;
+            width: 140px;
+            height: 140px;
+            border: 1px solid #7b66cb1b;
+            border-radius: 50%;
+            box-shadow: 0 0 0 15px #7b66cb08, 0 0 0 30px #7b66cb06;
+            pointer-events: none
+        }
+
+        .sectionhead {
+            display: flex;
+            gap: 13px;
+            align-items: flex-start;
+            margin-bottom: 23px;
+            position: relative;
+            z-index: 1
+        }
+
+        .num {
+            width: 37px;
+            height: 37px;
+            flex: none;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            color: #5746cf;
+            background: linear-gradient(145deg, #fff, #e2d9ff);
+            box-shadow: 0 4px 10px #6350b51a;
+            font-weight: 850;
+            font-size: 12px
+        }
+
+        .sectionhead h2 {
+            margin: 0;
+            font-size: 19px;
+            letter-spacing: -.025em
+        }
+
+        .sectionhead p {
+            margin: 3px 0 0;
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 19px 18px;
+            position: relative;
+            z-index: 1
+        }
+
+        .field {
+            min-width: 0
+        }
+
+        .full {
+            grid-column: 1/-1
+        }
+
+        label,
+        .legend {
+            display: block;
+            font-size: 13px;
+            font-weight: 750;
+            margin: 0 0 7px;
+            color: #34304f
+        }
+
+        .req {
+            color: #d94e78
+        }
+
+        .hint {
+            display: block;
+            margin-top: 6px;
+            font-size: 11px;
+            color: #716b91
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            font: inherit;
+            color: var(--ink);
+            background: #ffffffb8;
+            border: 1px solid #d8cceb;
+            border-radius: 11px;
+            padding: 12px 13px;
+            outline: none;
+            transition: .16s;
+            backdrop-filter: blur(4px)
+        }
+
+        input,
+        select {
+            height: 47px
+        }
+
+        textarea {
+            min-height: 122px;
+            resize: vertical
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #7868e8;
+            box-shadow: 0 0 0 4px #7868e81c;
+            background: #fff
+        }
+
+        input.invalid,
+        select.invalid,
+        textarea.invalid {
+            border-color: #e5484d;
+            box-shadow: 0 0 0 3px #e5484d1f
+        }
+
+        ::placeholder {
+            color: #9a94ae
+        }
+
+        .toolintro {
+            padding: 12px 14px;
+            background: linear-gradient(110deg, #e8e0ff, #dff0ff, #ffe7ee);
+            border: 1px solid #ded4fa;
+            border-radius: 12px;
+            color: #514b77;
+            font-size: 12px;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1
+        }
+
+        .tool-dropdown {
+            position: relative;
+            z-index: 2
+        }
+
+        .tool-toggle {
+            width: 100%;
+            height: auto;
+            min-height: 49px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            text-align: left;
+            border: 1px solid #d8cceb;
+            border-radius: 12px;
+            padding: 13px 15px;
+            background: #ffffffc9;
+            color: var(--ink);
+            font: inherit;
+            cursor: pointer
+        }
+
+        .tool-toggle:focus {
+            outline: 2px solid #7868e8;
+            outline-offset: 2px
+        }
+
+        .tool-toggle .tool-count {
+            font-size: 12px;
+            color: var(--muted);
+            font-weight: 500
+        }
+
+        .tool-panel {
+            display: none;
+            position: relative;
+            margin-top: 8px;
+            padding: 13px;
+            border: 1px solid #d8cceb;
+            border-radius: 13px;
+            background: #ffffffed;
+            box-shadow: 0 10px 28px #51418d18
+        }
+
+        .tool-panel.open {
+            display: block
+        }
+
+        .tool-search {
+            margin-bottom: 10px
+        }
+
+        .pills {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 6px;
+            position: relative;
+            z-index: 1;
+            max-height: 270px;
+            overflow: auto
+        }
+
+        .pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #e1d9f1;
+            border-radius: 9px;
+            padding: 8px 10px;
+            background: #ffffffb8;
+            font-size: 12px;
+            font-weight: 550;
+            cursor: pointer;
+            transition: .15s
+        }
+
+        .pill:nth-child(4n+1),
+        .pill:nth-child(4n+2),
+        .pill:nth-child(4n+3),
+        .pill:nth-child(4n) {
+            background: #ffffffb8
+        }
+
+        .pill:hover {
+            border-color: #a69af0
+        }
+
+        .pill:has(input:checked) {
+            border-color: #7868e8;
+            background: #eee9ff;
+            color: #4434b5;
+            box-shadow: 0 0 0 1px #7868e822
+        }
+
+        .pill input {
+            width: 15px;
+            height: 15px;
+            min-height: 0;
+            margin: 0;
+            flex: none;
+            accent-color: var(--violet);
+            background: #fff
+        }
+
+        .tool-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+            font-size: 11px;
+            color: var(--muted)
+        }
+
+        .tool-actions button {
+            border: 0;
+            background: none;
+            color: #5948d2;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+            padding: 5px
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #d8cdec;
+            border-radius: 999px;
+            padding: 8px 12px;
+            background: #ffffffa8;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: .15s
+        }
+
+        .pill:nth-child(4n+1) {
+            background: #ffe3e8
+        }
+
+        .pill:nth-child(4n+2) {
+            background: #e7e0ff
+        }
+
+        .pill:nth-child(4n+3) {
+            background: #dff3ff
+        }
+
+        .pill:nth-child(4n) {
+            background: #def6e9
+        }
+
+        .pill:hover {
+            border-color: #a69af0;
+            filter: saturate(1.15)
+        }
+
+        .pill:has(input:checked) {
+            border-color: #7868e8;
+            background: #d8ceff;
+            color: #4434b5;
+            box-shadow: 0 0 0 2px #7868e822
+        }
+
+        .pill input {
+            width: 15px;
+            height: 15px;
+            min-height: 0;
+            margin: 0;
+            accent-color: var(--violet);
+            background: #fff
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-top: 22px;
+            position: relative;
+            z-index: 1
+        }
+
+        .privacy {
+            max-width: 480px;
+            font-size: 11px;
+            color: #6d678b
+        }
+
+        .submit {
+            border: 0;
+            border-radius: 12px;
+            padding: 14px 20px;
+            color: #fff;
+            font-weight: 750;
+            background: linear-gradient(110deg, #5948d2, #a16bd8);
+            box-shadow: 0 7px 17px #5948d22b;
+            cursor: pointer;
+            white-space: nowrap
+        }
+
+        .submit:hover {
+            filter: brightness(1.05);
+            transform: translateY(-1px)
+        }
+
+        .success {
+            display: none;
+            margin-top: 18px;
+            padding: 17px;
+            border-radius: 14px;
+            background: #d9f5e8;
+            border: 1px solid #b5e8d3;
+            color: #17644d;
+            position: relative;
+            z-index: 1
+        }
+
+        .success button {
+            margin-top: 12px
+        }
+
+        .submit:disabled {
+            opacity: .7;
+            cursor: wait;
+            transform: none;
+            filter: none
+        }
+
+        .captcha {
+            margin-top: 18px;
+            max-width: 360px;
+            position: relative;
+            z-index: 1
+        }
+
+        .captcha-row {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .captcha-q {
+            flex: none;
+            min-width: 96px;
+            height: 47px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 14px;
+            border-radius: 11px;
+            background: var(--lav);
+            color: var(--ink);
+            font-weight: 800;
+            font-size: 17px;
+            letter-spacing: .5px;
+            user-select: none
+        }
+
+        .captcha-refresh {
+            flex: none;
+            width: 47px;
+            height: 47px;
+            border: 1px solid #d8cceb;
+            border-radius: 11px;
+            background: #ffffffb8;
+            color: var(--violet);
+            font-size: 20px;
+            cursor: pointer
+        }
+
+        .captcha-refresh:hover {
+            background: #fff
+        }
+
+        .form-error {
+            display: none;
+            margin-top: 18px;
+            padding: 13px 15px;
+            border-radius: 12px;
+            background: #ffe3e8;
+            border: 1px solid #f6b9c6;
+            color: #9b2141;
+            font-size: 13px;
+            position: relative;
+            z-index: 1
+        }
+
+        /* Field groups on page 1 */
+        .group {
+            border: 0;
+            margin: 0;
+            padding: 0;
+            min-width: 0;
+            position: relative;
+            z-index: 1
+        }
+
+        .group+.group {
+            margin-top: 26px;
+            padding-top: 22px;
+            border-top: 1px dashed #d9cdf0
+        }
+
+        /* float takes the legend out of the fieldset border so the divider line stays unbroken */
+        .group-title {
+            float: left;
+            width: 100%;
+            padding: 0;
+            margin: 0 0 14px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: #6a5bd6
+        }
+
+        .group-title+* {
+            clear: both
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(3, 1fr)
+        }
+
+        /* Upload boxes: the real file input covers the box (invisible) so click, keyboard and drag & drop all work */
+        .upload {
+            position: relative;
+            display: flex;
+            align-items: center;
+            min-height: 72px;
+            padding: 12px 14px;
+            border: 1.5px dashed #c9bbf0;
+            border-radius: 13px;
+            background: #ffffff9e;
+            transition: .16s
+        }
+
+        .upload:hover,
+        .upload.dragover {
+            border-color: #7868e8;
+            background: #fff
+        }
+
+        .upload:focus-within {
+            border-color: #7868e8;
+            box-shadow: 0 0 0 4px #7868e81c
+        }
+
+        .upload.has-file {
+            border-style: solid;
+            border-color: #9fdcc4;
+            background: #f1fbf6;
+            padding-right: 52px
+        }
+
+        .upload:has(input.invalid) {
+            border-color: #e5484d;
+            border-style: solid;
+            background: #fff6f7
+        }
+
+        .upload input[type=file] {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            min-height: 0;
+            opacity: 0;
+            cursor: pointer;
+            z-index: 1
+        }
+
+        .upload-ui {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+            pointer-events: none
+        }
+
+        .upload-icon {
+            flex: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: var(--lav);
+            color: var(--violet);
+            font-weight: 850;
+            font-size: 17px
+        }
+
+        .upload.has-file .upload-icon {
+            background: #d9f5e8;
+            color: #17805f
+        }
+
+        .upload-icon svg {
+            display: block
+        }
+
+        .upload-icon .ico-ok,
+        .upload.has-file .upload-icon .ico-up {
+            display: none
+        }
+
+        .upload.has-file .upload-icon .ico-ok {
+            display: block
+        }
+
+        .upload:hover .upload-icon .ico-up {
+            transform: translateY(-2px);
+            transition: transform .16s
+        }
+
+        .upload-text {
+            min-width: 0
+        }
+
+        .upload-text strong,
+        .upload-text small {
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap
+        }
+
+        .upload-text strong {
+            font-size: 14px;
+            color: var(--ink)
+        }
+
+        .upload-text small {
+            font-size: 11.5px;
+            color: var(--muted)
+        }
+
+        .upload-clear {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid #d8cceb;
+            background: #fff;
+            color: var(--muted);
+            font-size: 18px;
+            line-height: 1;
+            cursor: pointer
+        }
+
+        .upload-clear:hover {
+            color: #b0365d;
+            border-color: #f0b3c4
+        }
+
+        /* Inline messages */
+        .field-error {
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            margin-top: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #c42b47
+        }
+
+        .field-error:before {
+            content: "!";
+            flex: none;
+            width: 15px;
+            height: 15px;
+            margin-top: 1px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: #e5484d;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 800
+        }
+
+        .step-alert {
+            margin-top: 20px;
+            padding: 11px 14px;
+            border-radius: 12px;
+            background: #fff1f3;
+            border: 1px solid #f6c3cf;
+            color: #9b2141;
+            font-size: 13px;
+            font-weight: 600;
+            position: relative;
+            z-index: 1
+        }
+
+        .step-alert[hidden],
+        .restored[hidden] {
+            display: none
+        }
+
+        .restored {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin: 18px 0 0;
+            padding: 11px 14px;
+            border-radius: 12px;
+            background: #e6f7ef;
+            border: 1px solid #bfe8d6;
+            color: #17644d;
+            font-size: 13px;
+            position: relative;
+            z-index: 1
+        }
+
+        .restored button {
+            flex: none;
+            border: 0;
+            background: none;
+            color: #17644d;
+            font: inherit;
+            font-weight: 750;
+            text-decoration: underline;
+            cursor: pointer;
+            padding: 4px
+        }
+
+        .hint-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 4px 16px
+        }
+
+        .hint-row .hint {
+            flex: 1 1 260px
+        }
+
+        .counter {
+            flex: none;
+            margin-top: 6px;
+            font-size: 11.5px;
+            font-weight: 700;
+            color: var(--muted)
+        }
+
+        .counter.good {
+            color: #17805f
+        }
+
+        .counter.long {
+            color: #b7791f
+        }
+
+        .money.has-value {
+            color: #4434b5;
+            font-weight: 650
+        }
+
+        /* Submitting spinner */
+        .is-loading:before {
+            content: "";
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            margin-right: 9px;
+            vertical-align: -2px;
+            border: 2px solid currentColor;
+            border-right-color: transparent;
+            border-radius: 50%;
+            animation: spin .7s linear infinite
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        .submit:focus-visible,
+        .btn-back:focus-visible,
+        .btn-secondary:focus-visible,
+        .add-exp:focus-visible,
+        .captcha-refresh:focus-visible,
+        .exp-remove:focus-visible,
+        .upload-clear:focus-visible,
+        .restored button:focus-visible {
+            outline: 3px solid #7868e8;
+            outline-offset: 2px
+        }
+
+        /* Smaller header after the first page, so the form starts higher up */
+        .hero.compact {
+            padding: 22px 30px
+        }
+
+        .hero.compact h1 {
+            font-size: 26px;
+            margin: 6px 0 0
+        }
+
+        .hero.compact p,
+        .hero.compact .meta {
+            display: none
+        }
+
+        @media(max-width:620px) {
+            .grid-3 {
+                grid-template-columns: 1fr
+            }
+
+            .group+.group {
+                margin-top: 22px;
+                padding-top: 18px
+            }
+
+            .restored {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 4px
+            }
+
+            .hero.compact {
+                padding: 18px 20px
+            }
+
+            .hero.compact h1 {
+                font-size: 22px
+            }
+
+            .meta span {
+                font-size: 11px
+            }
+        }
+
+        /* Multi-step layout */
+        .stepper {
+            position: sticky;
+            top: 10px;
+            z-index: 5;
+            margin-top: 18px;
+            padding: 14px 18px;
+            background: #fffffff2;
+            border: 1px solid #ffffffc9;
+            border-radius: 18px;
+            box-shadow: 0 8px 26px #51418d14;
+            backdrop-filter: blur(10px)
+        }
+
+        /* Only steps already reached are shown; each has its own bar segment that fills as the step is completed */
+        .steps {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: minmax(0, 1fr);
+            gap: 14px
+        }
+
+        .steps li {
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr);
+            align-items: center;
+            gap: 9px 8px;
+            font-size: 12.5px;
+            font-weight: 650;
+            color: #7d77a0;
+            min-width: 0;
+            animation: stepIn .3s ease
+        }
+
+        .steps li[hidden] {
+            display: none
+        }
+
+        .seg {
+            grid-column: 1 / -1;
+            height: 6px;
+            border-radius: 99px;
+            background: #ebe4f8;
+            overflow: hidden
+        }
+
+        .seg i {
+            display: block;
+            height: 100%;
+            width: 0;
+            border-radius: inherit;
+            background: linear-gradient(90deg, #7a68e6, #b07ae0);
+            transition: width .35s ease
+        }
+
+        .steps li.done .seg i {
+            background: linear-gradient(90deg, #5fd3a5, #2fb985)
+        }
+
+        .steps li.done b {
+            font-size: 0
+        }
+
+        .steps li.done b:after {
+            content: "✓";
+            font-size: 13px;
+            font-weight: 800
+        }
+
+        .steps b {
+            flex: none;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 12px;
+            background: #eee9fa;
+            color: #8f89aa;
+            transition: .2s
+        }
+
+        .steps span {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap
+        }
+
+        .steps li.current {
+            color: var(--ink);
+            font-size: 13px;
+            font-weight: 750
+        }
+
+        .steps li.current b {
+            background: linear-gradient(110deg, #5948d2, #a16bd8);
+            color: #fff;
+            box-shadow: 0 4px 10px #5948d233
+        }
+
+        .steps li.done b {
+            background: #d9f5e8;
+            color: #17805f
+        }
+
+        .step {
+            display: none
+        }
+
+        /* Keeps the sticky progress bar from covering the page top or a highlighted field */
+        .step,
+        .done-card,
+        .step input,
+        .step select,
+        .step textarea {
+            scroll-margin-top: 150px
+        }
+
+        .step.active {
+            display: block;
+            animation: stepIn .28s ease
+        }
+
+        @keyframes stepIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        .step-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+            position: relative;
+            z-index: 1
+        }
+
+        .step-nav-main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-left: auto
+        }
+
+        .btn-back,
+        .btn-secondary {
+            border: 1px solid #d8cceb;
+            border-radius: 12px;
+            padding: 13px 18px;
+            font: inherit;
+            font-weight: 700;
+            background: #ffffffc9;
+            color: #4434b5;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: .16s
+        }
+
+        .btn-back {
+            border-color: transparent;
+            background: none;
+            color: var(--muted);
+            padding-left: 6px;
+            padding-right: 6px
+        }
+
+        .btn-back:hover {
+            color: var(--ink)
+        }
+
+        .btn-secondary:hover {
+            border-color: #a69af0;
+            background: #fff
+        }
+
+        .btn-secondary:disabled,
+        .btn-back:disabled {
+            opacity: .6;
+            cursor: wait
+        }
+
+        .step .privacy {
+            margin: 14px 0 0;
+            position: relative;
+            z-index: 1
+        }
+
+        .callout {
+            display: flex;
+            gap: 12px;
+            margin-top: 18px;
+            padding: 14px 16px;
+            border-radius: 14px;
+            background: linear-gradient(110deg, #e8e0ff, #dff0ff, #ffe7ee);
+            border: 1px solid #ded4fa;
+            color: #4d4672;
+            font-size: 13px;
+            position: relative;
+            z-index: 1
+        }
+
+        .callout-icon {
+            flex: none;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: #fff;
+            color: var(--violet);
+            font-weight: 850;
+            font-size: 13px
+        }
+
+        .callout p {
+            margin: 0
+        }
+
+        .callout .opt {
+            display: inline-block;
+            margin-left: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--muted)
+        }
+
+        .exp-item {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 16px;
+            padding: 18px;
+            border-radius: 16px;
+            background: #ffffff9e;
+            border: 1px solid #e3daf5
+        }
+
+        .exp-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px
+        }
+
+        .exp-head strong {
+            font-size: 14px;
+            color: #4434b5
+        }
+
+        .exp-remove {
+            border: 0;
+            background: none;
+            color: #b0365d;
+            font: inherit;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            padding: 6px
+        }
+
+        .exp-item .field+.field {
+            margin-top: 16px
+        }
+
+        .add-exp {
+            width: 100%;
+            position: relative;
+            z-index: 1;
+            padding: 14px;
+            border: 1.5px dashed #b6a8ea;
+            border-radius: 14px;
+            background: #ffffff70;
+            color: #4434b5;
+            font: inherit;
+            font-weight: 750;
+            cursor: pointer;
+            transition: .16s
+        }
+
+        .add-exp:hover {
+            background: #fff;
+            border-color: #7868e8
+        }
+
+        .add-exp[hidden] {
+            display: none
+        }
+
+        .done-card {
+            text-align: center;
+            padding: 44px 28px
+        }
+
+        .done-card[hidden] {
+            display: none
+        }
+
+        .done-icon {
+            width: 68px;
+            height: 68px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 32px;
+            font-weight: 800;
+            color: #fff;
+            background: linear-gradient(135deg, #34c58e, #1f9d73);
+            box-shadow: 0 0 0 10px #d9f5e8, 0 10px 26px #1f9d7333;
+            position: relative;
+            z-index: 1
+        }
+
+        .done-eyebrow {
+            display: inline-block;
+            margin-bottom: 12px;
+            padding: 5px 12px;
+            border-radius: 99px;
+            background: #d9f5e8;
+            color: #17805f;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1
+        }
+
+        .done-card h2 {
+            margin: 0 auto 8px;
+            max-width: 620px;
+            font-size: clamp(26px, 5vw, 36px);
+            line-height: 1.15;
+            letter-spacing: -.035em;
+            overflow-wrap: anywhere;
+            position: relative;
+            z-index: 1
+        }
+
+        .done-card p {
+            margin: 0 auto;
+            max-width: 520px;
+            color: #514b77;
+            position: relative;
+            z-index: 1
+        }
+
+        .done-card .done-lead {
+            margin-bottom: 14px;
+            font-size: 17px;
+            font-weight: 650;
+            color: var(--ink)
+        }
+
+        @media(max-width:620px) {
+            .stepper {
+                top: 6px;
+                padding: 12px 14px
+            }
+
+            .steps {
+                gap: 10px
+            }
+
+            .steps li {
+                gap: 8px 6px;
+                font-size: 12px
+            }
+
+            .steps li.current {
+                font-size: 12.5px
+            }
+
+            .steps b {
+                width: 24px;
+                height: 24px
+            }
+
+            .step-nav,
+            .step-nav-main {
+                flex-direction: column-reverse;
+                align-items: stretch
+            }
+
+            .step-nav-main {
+                margin-left: 0;
+                width: 100%
+            }
+
+            .btn-back,
+            .btn-secondary {
+                width: 100%;
+                white-space: normal
+            }
+
+            .step-nav .submit {
+                white-space: normal
+            }
+
+            .exp-item {
+                padding: 15px 13px
+            }
+
+            .done-card {
+                padding: 34px 18px
+            }
+        }
+
+        .hp {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden
+        }
+
+        .foot {
+            text-align: center;
+            color: #777391;
+            font-size: 11px;
+            margin-top: 24px
+        }
+
+        @media(max-width:620px) {
+            .wrap {
+                margin: 18px auto 40px;
+                width: calc(100% - 22px)
+            }
+
+            .hero {
+                padding: 27px 22px;
+                border-radius: 20px
+            }
+
+            .hero:before {
+                right: -190px
+            }
+
+            .card {
+                padding: 22px 17px
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 16px
+            }
+
+            .pills {
+                grid-template-columns: 1fr
+            }
+
+            .full {
+                grid-column: auto
+            }
+
+            .actions {
+                align-items: stretch;
+                flex-direction: column
+            }
+
+            .submit {
+                width: 100%
+            }
+
+            .topdots {
+                left: -30px;
+                opacity: .5
+            }
+
+            .rightdots {
+                right: -115px;
+                opacity: .5
+            }
+
+            .bottomstripe {
+                left: -100px;
+                opacity: .55
+            }
+
+            .triangles {
+                right: 3%;
+                opacity: .35
+            }
+        }
+
+        /* Responsive refinements */
+        .tool-toggle span:first-child {
+            min-width: 0;
+            overflow-wrap: anywhere
+        }
+
+        input[type=file] {
+            height: auto;
+            min-height: 47px
+        }
+
+        @media(max-width:860px) {
+            .hero {
+                padding: 31px 30px
+            }
+
+            .card {
+                padding: 25px 22px
+            }
+        }
+
+        @media(max-width:620px) {
+
+            /* 16px stops iPhones from zooming in when a field is tapped */
+            input,
+            select,
+            textarea {
+                font-size: 16px
+            }
+
+            textarea {
+                min-height: 190px
+            }
+
+            .topstripe {
+                right: -70px;
+                opacity: .35
+            }
+
+            .topdots {
+                opacity: .3
+            }
+
+            .hero {
+                padding: 27px 22px
+            }
+
+            .card {
+                padding: 22px 17px
+            }
+
+            .brand {
+                margin-bottom: 16px
+            }
+
+            .sectionhead {
+                margin-bottom: 19px
+            }
+
+            .sectionhead h2 {
+                font-size: 17px
+            }
+
+            .pill {
+                min-height: 42px
+            }
+
+            .tool-actions button {
+                padding: 10px 6px
+            }
+
+            .privacy {
+                max-width: none
+            }
+
+            .submit {
+                padding: 15px 20px
+            }
+        }
+
+        @media(max-width:380px) {
+            .wrap {
+                width: calc(100% - 16px);
+                margin-top: 12px
+            }
+
+            .logo {
+                width: 118px;
+                height: 38px
+            }
+
+            .brand {
+                gap: 9px
+            }
+
+            .brand strong {
+                font-size: 13px
+            }
+
+            .brand small {
+                font-size: 10px;
+                letter-spacing: .11em
+            }
+
+            .hero {
+                padding: 23px 17px;
+                border-radius: 17px
+            }
+
+            .eyebrow {
+                font-size: 10px;
+                letter-spacing: .14em
+            }
+
+            .card {
+                padding: 19px 14px;
+                border-radius: 17px
+            }
+
+            .sectionhead {
+                gap: 10px
+            }
+
+            .num {
+                width: 33px;
+                height: 33px;
+                border-radius: 10px
+            }
+
+            .tool-panel {
+                padding: 10px
+            }
+        }
+
+        /* Touch screens: no sticky hover effects */
+        @media(hover:none) {
+            .submit:hover {
+                transform: none;
+                filter: none
+            }
+
+            .pill:hover {
+                filter: none
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            html {
+                scroll-behavior: auto
+            }
+
+            * {
+                transition: none !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="decor dots topdots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="decor dots blue rightdots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    </div>
+    <div class="decor stripe bottomstripe"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="decor stripe topstripe"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="triangles"><i></i><i></i><i></i><i></i></div>
+    <main class="wrap">
+        <div class="brand">
+            <div class="logo"><img
+                    src="data:image/png;base64,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"
+                    alt="The ArtLogic logo"></div>
+            <div><strong>THE ARTLOGIC</strong><small>Talent Acquisition</small></div>
+        </div>
+        <header class="hero">
+            <div class="eyebrow">Candidate screening · All experience levels</div>
+            <h1>Candidate Profile</h1>
+            <p>Tell us about your skills, experience, and the role you are interested in. A short, focused profile helps
+                our team understand your fit.</p>
+        </header>
+        <nav class="stepper" id="stepper" aria-label="Form progress" hidden>
+            <ol class="steps">
+                <li data-step="1" class="current"><b>1</b><span>Profile</span><span class="seg"><i></i></span></li>
+                <li data-step="2" hidden><b>2</b><span>Why you</span><span class="seg"><i></i></span></li>
+                <li data-step="3" hidden><b>3</b><span>Experience</span><span class="seg"><i></i></span></li>
+            </ol>
+        </nav>
+        <form id="candidateForm" novalidate>
+            <div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website"
+                    type="text" tabindex="-1" autocomplete="off"></div>
+            <div class="restored" id="restoredNote" role="status" hidden><span id="restoredText">Welcome back! We
+                    restored your answers from last time.</span><button type="button" id="startOver">Start
+                    over</button></div>
+            <div class="step active" id="step1" data-title="Professional details">
+                <section class="card">
+                    <div class="sectionhead">
+                        <div class="num">01</div>
+                        <div>
+                            <h2>Professional details</h2>
+                            <p>Share your details and the position you are interested in.</p>
+                        </div>
+                    </div>
+                    <fieldset class="group">
+                        <legend class="group-title">Contact details</legend>
+                        <div class="grid">
+                            <div class="field"><label for="name">Full name <span class="req">*</span></label><input
+                                    id="name" name="Full name" autocomplete="name" placeholder="Enter your full name"
+                                    required></div>
+                            <div class="field"><label for="email">Email address <span class="req">*</span></label><input
+                                    id="email" name="Email address" type="email" autocomplete="email"
+                                    placeholder="e.g. name@example.com" required></div>
+                            <div class="field"><label for="mobile">Mobile number <span
+                                        class="req">*</span></label><input id="mobile" name="Mobile number" type="tel"
+                                    inputmode="numeric" autocomplete="tel-national" pattern="[0-9]{10}" maxlength="10"
+                                    title="Enter a valid 10-digit mobile number" placeholder="e.g. 9999988888" required>
+                            </div>
+                            <div class="field"><label for="location">Location <span class="req">*</span></label><input
+                                    id="location" name="Location" autocomplete="address-level2"
+                                    placeholder="e.g. Mohali, Punjab" required></div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="group">
+                        <legend class="group-title">Role &amp; experience</legend>
+                        <div class="grid">
+                            <div class="field"><label for="department">Department <span
+                                        class="req">*</span></label><select id="department" name="Department" required>
+                                    <option value="">Choose your department</option>
+                                    <option>Customer Support</option>
+                                    <option>Design</option>
+                                    <option>Development</option>
+                                    <option>HR</option>
+                                    <option>MIS / Reporting</option>
+                                    <option>Marketing</option>
+                                    <option>Operations / Project Management</option>
+                                    <option>Sales</option>
+                                    <option>IT Administration</option>
+                                    <option>Video / Motion</option>
+                                    <option>Other</option>
+                                </select></div>
+                            <div class="field"><label for="role">Position you want to apply for <span
+                                        class="req">*</span></label><select id="role" name="Position applying for"
+                                    required>
+                                    <option value="">Select a position</option>
+
+                                    <!-- 1 - Design -->
+                                    <option>1 - Graphic Designer</option>
+                                    <option>1 - Print Designer</option>
+                                    <option>1 - UI/UX Designer</option>
+                                    <option>1 - Video Editor</option>
+
+                                    <!-- 2 - Development -->
+                                    <option>2 - Frontend Developer</option>
+                                    <option>2 - Backend Developer</option>
+                                    <option>2 - Full Stack Developer</option>
+                                    <option>2 - Web Developer</option>
+                                    <option>2 - QA / Software Tester</option>
+
+                                    <!-- 3 - Content -->
+                                    <option>3 - Content Writer</option>
+                                    <option>3 - Copywriter</option>
+                                    <option>3 - Content Editor</option>
+
+                                    <!-- 4 - Digital Marketing -->
+                                    <option>4 - Digital Marketing Executive</option>
+                                    <option>4 - SEO Executive</option>
+                                    <option>4 - Social Media Executive</option>
+                                    <option>4 - Social Media Manager</option>
+
+                                    <!-- 5 - Human Resources -->
+                                    <option>5 - HR Generalist</option>
+                                    <option>5 - HR Manager</option>
+                                    <option>5 - HR Recruiter</option>
+                                    <option>5 - HR Executive</option>
+
+                                    <!-- 6 - Project Management & Operations -->
+                                    <option>6 - Project Manager</option>
+                                    <option>6 - Project Coordinator</option>
+                                    <option>6 - Operations Executive</option>
+
+                                    <!-- 7 - Sales & Business Development -->
+                                    <option>7 - Sales Executive</option>
+                                    <option>7 - Business Development Executive (BDE)</option>
+                                    <option>7 - Business Development Manager</option>
+
+                                    <!-- 8 - Customer Support -->
+                                    <option>8 - Customer Support Executive</option>
+                                    <option>8 - Customer Service Representative</option>
+
+                                    <!-- 9 - IT, MIS & Administration -->
+                                    <option>9 - IT Administrator</option>
+                                    <option>9 - IT Support Executive</option>
+                                    <option>9 - MIS Executive</option>
+                                    <option>9 - Data Analyst</option>
+                                    <option>9 - Admin Executive</option>
+                                    <option>9 - Office Assistant</option>
+                                    <option>9 - Intern</option>
+                                    <option>9 - Other</option>
+
+                                </select></div>
+                            <div class="field"><label for="designation">Current designation <span
+                                        class="req">*</span></label><input id="designation" name="Current designation"
+                                    placeholder="e.g. UI/UX Designer" required></div>
+                            <div class="field"><label for="experience">Total professional experience <span
+                                        class="req">*</span></label><select id="experience" name="Total experience"
+                                    required>
+                                    <option value="">Select experience</option>
+                                    <option>Fresher</option>
+                                    <option>0–1 years</option>
+                                    <option>1–2 years</option>
+                                    <option>2–4 years</option>
+                                    <option>4–6 years</option>
+                                    <option>6-9 years</option>
+                                    <option>9+ years</option>
+                                </select></div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="group">
+                        <legend class="group-title">Availability &amp; salary</legend>
+                        <div class="grid grid-3">
+                            <div class="field"><label for="notice">Notice period <span
+                                        class="req">*</span></label><select id="notice" name="Notice period" required>
+                                    <option value="">Select notice period</option>
+                                    <option>Immediate / Serving notice</option>
+                                    <option>15 days</option>
+                                    <option>30 days</option>
+                                    <option>60 days</option>
+                                    <option>90 days</option>
+                                    <option>Other / Negotiable</option>
+                                </select></div>
+                            <div class="field"><label for="currentSalary">Current salary (annual CTC, ₹)
+                                    <span>(Optional)</span></label><input id="currentSalary"
+                                    name="Current annual CTC INR" type="number" min="0" step="1" inputmode="numeric"
+                                    placeholder="e.g. 600000"><span class="hint money" data-for="currentSalary">Yearly
+                                    amount, not monthly.</span></div>
+                            <div class="field"><label for="expectedSalary">Expected salary (annual CTC, ₹) <span
+                                        class="req">*</span></label><input id="expectedSalary"
+                                    name="Expected annual CTC INR" type="number" min="0" step="1" inputmode="numeric"
+                                    placeholder="e.g. 800000" required><span class="hint money"
+                                    data-for="expectedSalary">Yearly amount, not
+                                    monthly.</span></div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="group">
+                        <legend class="group-title">Documents</legend>
+                        <div class="grid">
+                            <div class="field"><label for="resume">CV / Resume <span class="req">*</span></label>
+                                <div class="upload"><input id="resume" name="attachment" type="file"
+                                        accept=".pdf,.doc,.docx" required>
+                                    <div class="upload-ui" aria-hidden="true"><span class="upload-icon"><svg
+                                                class="ico-up" viewBox="0 0 24 24" width="22" height="22" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <path
+                                                    d="M7 18a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 8.5a4 4 0 0 1 0 9.5" />
+                                                <path d="M12 12v8" />
+                                                <path d="m8.5 15.5 3.5-3.5 3.5 3.5" />
+                                            </svg><svg class="ico-ok" viewBox="0 0 24 24" width="22" height="22"
+                                                fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+                                                <path d="M14 3v5h5" />
+                                                <path d="m9 14.5 2 2 4-4" />
+                                            </svg></span><span class="upload-text"><strong
+                                                data-empty="Upload your CV">Upload your
+                                                CV</strong><small data-empty="PDF, DOC or DOCX · Max 5 MB">PDF, DOC or
+                                                DOCX ·
+                                                Max 5 MB</small></span></div><button class="upload-clear" type="button"
+                                        aria-label="Remove CV" hidden>×</button>
+                                </div>
+                            </div>
+                            <div class="field"><label for="coverLetter">Cover Letter <span>(Optional)</span></label>
+                                <div class="upload"><input id="coverLetter" name="Cover Letter" type="file"
+                                        accept=".pdf,.doc,.docx,.txt">
+                                    <div class="upload-ui" aria-hidden="true"><span class="upload-icon"><svg
+                                                class="ico-up" viewBox="0 0 24 24" width="22" height="22" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <path
+                                                    d="M7 18a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 8.5a4 4 0 0 1 0 9.5" />
+                                                <path d="M12 12v8" />
+                                                <path d="m8.5 15.5 3.5-3.5 3.5 3.5" />
+                                            </svg><svg class="ico-ok" viewBox="0 0 24 24" width="22" height="22"
+                                                fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+                                                <path d="M14 3v5h5" />
+                                                <path d="m9 14.5 2 2 4-4" />
+                                            </svg></span><span class="upload-text"><strong
+                                                data-empty="Upload a cover letter">Upload a cover
+                                                letter</strong><small data-empty="PDF, DOC, DOCX or TXT · Max 5 MB">PDF,
+                                                DOC, DOCX or TXT · Max 5 MB</small></span></div><button
+                                        class="upload-clear" type="button" aria-label="Remove cover letter"
+                                        hidden>×</button>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="group">
+                        <legend class="group-title">Online profiles</legend>
+                        <div class="grid">
+                            <div class="field"><label for="linkedin">LinkedIn profile <span
+                                        class="req">*</span></label><input id="linkedin" name="LinkedIn profile"
+                                    type="url" placeholder="https://www.linkedin.com/in/your-profile" required></div>
+                            <div class="field"><label for="portfolio">GitHub link / Portfolio
+                                    <span>(Optional)</span></label><input id="portfolio" name="GitHub link or Portfolio"
+                                    type="url" placeholder="https://github.com/username or your portfolio URL"><span
+                                    class="hint">Optional · Share a GitHub profile, portfolio, or work samples
+                                    link.</span>
+                            </div>
+                            <div class="field"><label for="facebook">Facebook URL <span>(Optional)</span></label><input
+                                    id="facebook" name="Facebook URL" type="url"
+                                    placeholder="https://www.facebook.com/your-profile"></div>
+                            <div class="field"><label for="instagram">Instagram URL or username
+                                    <span>(Optional)</span></label><input id="instagram"
+                                    name="Instagram URL or username" maxlength="200"
+                                    placeholder="https://www.instagram.com/username or @username"></div>
+                        </div>
+                    </fieldset>
+                    <div class="step-nav">
+                        <span class="privacy">Fields marked <span class="req">*</span> are required.</span>
+                        <button class="submit" type="button" id="toStep2">Submit&nbsp; →</button>
+                    </div>
+                </section>
+            </div>
+            <div class="step" id="step2" data-title="Why should we hire you?">
+                <section class="card">
+                    <div class="sectionhead">
+                        <div class="num">02</div>
+                        <div>
+                            <h2>Why should we hire you, in brief?</h2>
+                            <p>One focused response instead of repetitive domain-by-domain questions.</p>
+                        </div>
+                    </div>
+                    <div class="field" style="position:relative;z-index:1"><label for="summary">Why should we hire you?
+                            <span class="req">*</span></label><textarea id="summary"
+                            name="Professional experience summary" required
+                            placeholder="Tell us why you are a strong fit for this position, what strengths you would bring, and how your skills and experience can contribute to The ArtLogic."></textarea>
+                        <div class="hint-row"><span class="hint">You may cover your key skills, strategic contribution,
+                                problem-solving, handling pressure, teamwork or team management (if applicable), and
+                                relevant tools/AI.</span><span class="counter" id="summaryCount">0 words · aim for
+                                100–150</span></div>
+                    </div>
+                    <div class="callout"><span class="callout-icon" aria-hidden="true">i</span>
+                        <p>If you want your details to be analysed quickly, please feel free to share your complete
+                            career
+                            experience on the next page by selecting <strong>“Yes, I want to submit more
+                                details”</strong>.
+                            This will also help us verify that your resume matches these details.<span
+                                class="opt">(Optional)</span></p>
+                    </div>
+                    <div class="field captcha"><label for="captcha">Security check: solve this <span
+                                class="req">*</span></label>
+                        <div class="captcha-row"><span class="captcha-q" id="captchaQ" aria-live="polite"></span><input
+                                id="captcha" type="text" inputmode="numeric" maxlength="3" autocomplete="off"
+                                placeholder="Answer" required><button class="captcha-refresh" id="captchaRefresh"
+                                type="button" title="New question" aria-label="New question">↻</button></div>
+                    </div>
+                    <div class="form-error" id="formError" role="alert"></div>
+                    <div class="step-nav">
+                        <button class="btn-back" type="button" data-back="1">←&nbsp; Back</button>
+                        <div class="step-nav-main">
+                            <button class="btn-secondary" type="button" id="submitNow">No, I want to submit my
+                                form</button>
+                            <button class="submit" type="button" id="toStep3">Yes, I want to submit more
+                                details&nbsp; →</button>
+                        </div>
+                    </div>
+                    <p class="privacy">Please ensure your information is accurate. Your profile is intended for
+                        recruitment screening by The ArtLogic.</p>
+                </section>
+            </div>
+            <div class="step" id="step3" data-title="Career experience (optional)">
+                <section class="card">
+                    <div class="sectionhead">
+                        <div class="num">03</div>
+                        <div>
+                            <h2>Your career experience</h2>
+                            <p>Add each role separately, starting with the most recent one. This helps us review your
+                                profile faster and match it with your resume.</p>
+                        </div>
+                    </div>
+                    <div id="expList"></div>
+                    <button class="add-exp" type="button" id="addExp">+&nbsp; Add more experience</button>
+                    <div class="step-nav">
+                        <button class="btn-back" type="button" data-back="2">←&nbsp; Back</button>
+                        <div class="step-nav-main"><button class="submit" type="button" id="submitFinal">Let's submit my
+                                form&nbsp; →</button></div>
+                    </div>
+                    <p class="privacy">Please ensure your information is accurate. Your profile is intended for
+                        recruitment screening by The ArtLogic.</p>
+                </section>
+            </div>
+        </form>
+        <section class="card done-card" id="successMsg" role="status" tabindex="-1" hidden>
+            <div class="done-icon" aria-hidden="true">✓</div>
+            <div class="done-eyebrow">Application submitted</div>
+            <h2>Thank you<span id="doneName"></span>!</h2>
+            <p class="done-lead">Your profile has been submitted successfully.</p>
+            <p>Our Talent Acquisition team will review your application and get in touch with you if your profile
+                matches the role. You can now close this page.</p>
+        </section>
+        <div class="foot">THE ARTLOGIC · Talent Acquisition · Candidate Profile</div>
+    </main>
+    <script>
+        const form = document.getElementById("candidateForm");
+        // Submissions go to the Google Apps Script web app (TAL-Candidate-AppsScript.gs), which saves files to Google Drive, adds a row to the Google Sheet and emails HR.
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw_NivU0kb3F6i1t3w9N_pmU9YLg0yZN4gffPVR1Em7qGkNgNltNvs57sTBOLkrfNa4Vg/exec';
+        const MAX_FILE_MB = 5;
+        const fileRules = { resume: ['pdf', 'doc', 'docx'], coverLetter: ['pdf', 'doc', 'docx', 'txt'] };
+        const formError = document.getElementById('formError'), successMsg = document.getElementById('successMsg');
+        const val = id => document.getElementById(id).value.trim();
+        function checkFile(input) { const f = input.files[0]; let msg = ''; if (f) { const ext = f.name.includes('.') ? f.name.split('.').pop().toLowerCase() : ''; if (!fileRules[input.id].includes(ext)) msg = 'Please upload a ' + fileRules[input.id].join(', ').toUpperCase() + ' file.'; else if (f.size > MAX_FILE_MB * 1024 * 1024) msg = 'This file is larger than ' + MAX_FILE_MB + ' MB. Please upload a smaller file.' } input.setCustomValidity(msg); if (msg) input.checkValidity() }
+        // Upload boxes: show the chosen file's name and size, allow removing it, highlight while dragging a file over
+        const formatSize = b => b < 1024 * 1024 ? Math.max(1, Math.round(b / 1024)) + ' KB' : (b / 1024 / 1024).toFixed(1) + ' MB';
+        function updateUpload(input) { const box = input.closest('.upload'), f = input.files[0], strong = box.querySelector('strong'), small = box.querySelector('small'); box.classList.toggle('has-file', !!f); strong.textContent = f ? f.name : strong.dataset.empty; small.textContent = f ? formatSize(f.size) + ' · Click to change' : small.dataset.empty; box.querySelector('.upload-clear').hidden = !f }
+        Object.keys(fileRules).forEach(id => {
+            const input = document.getElementById(id), box = input.closest('.upload');
+            input.addEventListener('change', () => { checkFile(input); updateUpload(input) });
+            box.querySelector('.upload-clear').addEventListener('click', () => { input.value = ''; input.dispatchEvent(new Event('change', { bubbles: true })); clearFieldError(input) });
+            ['dragenter', 'dragover'].forEach(t => box.addEventListener(t, () => box.classList.add('dragover')));
+            ['dragleave', 'drop'].forEach(t => box.addEventListener(t, () => box.classList.remove('dragover')));
+        });
+        // Salary: show the amount in Indian format and the monthly equivalent, and flag amounts that look monthly
+        document.querySelectorAll('.money').forEach(hint => {
+            const input = document.getElementById(hint.dataset.for), base = hint.textContent;
+            input.addEventListener('input', () => { const n = Number(input.value), ok = input.value !== '' && isFinite(n) && n > 0, low = ok && n < 100000; hint.textContent = !ok ? base : '₹' + n.toLocaleString('en-IN') + ' per year' + (low ? ' — is this a monthly amount? Please enter the yearly total.' : ' · about ₹' + Math.round(n / 12).toLocaleString('en-IN') + ' per month'); hint.classList.toggle('has-value', ok && !low); hint.style.color = low ? '#b7791f' : '' });
+        });
+        // Word counter for "Why should we hire you?"
+        const summary = document.getElementById('summary'), summaryCount = document.getElementById('summaryCount');
+        summary.addEventListener('input', () => { const words = (summary.value.trim().match(/\S+/g) || []).length; summaryCount.textContent = words + (words === 1 ? ' word' : ' words') + (words < 100 ? ' · aim for 100–150' : words <= 150 ? ' · great length' : ' · a little long, that’s okay'); summaryCount.classList.toggle('good', words >= 100 && words <= 150); summaryCount.classList.toggle('long', words > 150) });
+        // Mobile number: digits only, max 10
+        const mobileInput = document.getElementById('mobile'); mobileInput.addEventListener('input', () => { const digits = mobileInput.value.replace(/\D/g, '').slice(0, 10); if (mobileInput.value !== digits) mobileInput.value = digits });
+        // Simple math captcha: addition, subtraction (never negative) or small multiplication
+        const captchaInput = document.getElementById('captcha'), captchaQ = document.getElementById('captchaQ'); let captchaAnswer = 0;
+        function newCaptcha() { const r = n => Math.floor(Math.random() * n) + 1, type = Math.floor(Math.random() * 3); let a, b, op; if (type === 0) { a = r(20); b = r(20); op = '+'; captchaAnswer = a + b } else if (type === 1) { a = r(20); b = r(a); op = '−'; captchaAnswer = a - b } else { a = r(9); b = r(9); op = '×'; captchaAnswer = a * b } captchaQ.textContent = a + ' ' + op + ' ' + b + ' = ?'; captchaInput.value = ''; captchaInput.setCustomValidity(''); captchaInput.classList.remove('invalid') }
+        function checkCaptcha() { const v = captchaInput.value.trim(); captchaInput.setCustomValidity(v && Number(v) !== captchaAnswer ? 'Incorrect answer. Please try again.' : '') }
+        captchaInput.addEventListener('input', () => { captchaInput.value = captchaInput.value.replace(/\D/g, ''); checkCaptcha() });
+        document.getElementById('captchaRefresh').addEventListener('click', () => { newCaptcha(); captchaInput.focus() }); newCaptcha();
+        // Red border on required/invalid fields when the user tries to continue or submit; cleared once the field is fixed.
+        // Listeners sit on the form so experience boxes added later are covered too ('invalid' does not bubble, hence capture).
+        // Each problem field also gets a plain-language message right under it.
+        function messageFor(el) {
+            const v = el.validity;
+            if (v.customError) return el.validationMessage;
+            if (v.valueMissing) return el.type === 'file' ? 'Please upload your CV.' : el.tagName === 'SELECT' ? 'Please choose an option.' : 'This field is required.';
+            if (v.typeMismatch) return el.type === 'email' ? 'Please enter a valid email address, e.g. name@example.com' : 'Please enter a full link starting with https://';
+            if (v.patternMismatch) return el.id === 'mobile' ? 'Mobile number must be exactly 10 digits.' : 'Please check the format.';
+            if (v.tooShort) return 'Please write at least ' + el.minLength + ' characters (you have ' + el.value.length + ').';
+            if (v.rangeUnderflow) return 'Please enter a positive amount.';
+            if (v.badInput || v.stepMismatch) return 'Please enter numbers only.';
+            return el.validationMessage;
+        }
+        function showFieldError(el) {
+            el.classList.add('invalid'); el.setAttribute('aria-invalid', 'true');
+            const field = el.closest('.field'); if (!field) return;
+            if (!el._error) { el._error = document.createElement('div'); el._error.className = 'field-error'; el._error.id = (el.id || 'field') + '-error'; (el.closest('.upload, .captcha-row') || el).after(el._error); el.setAttribute('aria-describedby', el._error.id) }
+            el._error.textContent = messageFor(el);
+        }
+        function clearFieldError(el) { el.classList.remove('invalid'); el.removeAttribute('aria-invalid'); if (el._error) { el._error.remove(); el._error = null; el.removeAttribute('aria-describedby') } }
+        form.addEventListener('invalid', e => showFieldError(e.target), true);
+        const clearInvalid = e => { const el = e.target; if (el.classList && el.classList.contains('invalid') && el.checkValidity()) { clearFieldError(el); updateStepAlert() } };
+        form.addEventListener('input', clearInvalid); form.addEventListener('change', clearInvalid);
+        // Check a field as soon as the candidate leaves it, but only if they typed something (no errors just for tabbing past)
+        form.addEventListener('focusout', e => { const el = e.target; if (el.matches('input,select,textarea') && el.type !== 'file' && el.id !== 'website' && el.value.trim()) el.checkValidity() });
+
+        // Steps: 1 Professional details + tools, 2 Why should we hire you, 3 Career experience (optional)
+        const steps = [null, document.getElementById('step1'), document.getElementById('step2'), document.getElementById('step3')];
+        const stepper = document.getElementById('stepper'), stepItems = [...stepper.querySelectorAll('.steps li')];
+        let currentStep = 1;
+        const stepFields = n => [...steps[n].querySelectorAll('input,select,textarea')].filter(el => el.type !== 'checkbox' && el.type !== 'search');
+        // Marks every invalid field on a step, shows a short summary above the buttons and takes the candidate to the first problem
+        function updateStepAlert() {
+            const step = steps[currentStep]; if (!step) return;
+            let alert = step.querySelector('.step-alert'); const count = step.querySelectorAll('.invalid').length;
+            if (!alert) { if (!count) return; alert = document.createElement('div'); alert.className = 'step-alert'; alert.setAttribute('role', 'alert'); step.querySelector('.step-nav').before(alert) }
+            alert.hidden = !count; alert.textContent = count === 1 ? 'Please fix the highlighted field above.' : 'Please fix the ' + count + ' highlighted fields above.';
+        }
+        function validateStep(n) { const bad = stepFields(n).filter(el => !el.checkValidity()); updateStepAlert(); if (bad.length) { (bad[0].closest('.upload') || bad[0]).scrollIntoView({ behavior: 'smooth', block: 'center' }); bad[0].focus({ preventScroll: true }) } return !bad.length }
+        // Shows only the steps reached so far (never the next one). Earlier steps are full; the current step fills as its required fields are completed.
+        let shownSteps = 1;
+        function updateProgress() {
+            stepItems.forEach((li, i) => {
+                const n = i + 1; let fill = 0;
+                li.hidden = n > shownSteps;
+                if (currentStep > 3 || n < currentStep) fill = 100;
+                else if (n === currentStep) { const req = stepFields(n).filter(el => el.required); fill = req.length ? Math.round(req.filter(el => el.validity.valid).length / req.length * 100) : 0 }
+                li.querySelector('.seg i').style.width = fill + '%';
+            });
+        }
+        // Each page is a browser history entry, so the phone/browser Back button goes to the previous page instead of leaving the form
+        let maxStep = 1;
+        history.replaceState({ step: 1 }, '');
+        window.addEventListener('popstate', e => { if (form.hidden) return; goToStep(Math.min((e.state && e.state.step) || 1, maxStep), true) });
+        function goToStep(n, fromHistory) {
+            if (!fromHistory && n !== currentStep) history.pushState({ step: n }, '');
+            maxStep = Math.max(maxStep, n); document.querySelector('.hero').classList.toggle('compact', n !== 1);
+            currentStep = n; formError.style.display = 'none'; stepper.hidden = n === 1; // no progress box on the first page
+            steps.forEach((s, i) => s && s.classList.toggle('active', i === n));
+            shownSteps = n;
+            stepItems.forEach((li, i) => { li.classList.toggle('current', i + 1 === n); li.classList.toggle('done', i + 1 < n); if (i + 1 === n) li.setAttribute('aria-current', 'step'); else li.removeAttribute('aria-current') });
+            updateProgress(); if (steps[n]) steps[n].scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        form.addEventListener('input', updateProgress); form.addEventListener('change', updateProgress);
+        form.addEventListener('submit', e => e.preventDefault());
+        document.getElementById('toStep2').addEventListener('click', () => { if (validateStep(1)) goToStep(2) });
+        document.getElementById('toStep3').addEventListener('click', () => { if (validateStep(2)) { if (!expList.children.length) addExperience(); goToStep(3) } });
+        // In-page Back uses browser history when it can, so the two Back buttons always agree
+        form.querySelectorAll('[data-back]').forEach(b => b.addEventListener('click', () => { if (history.state && history.state.step === currentStep && currentStep > 1) history.back(); else goToStep(Number(b.dataset.back)) }));
+
+        // Career experience entries (step 3)
+        const MAX_EXPERIENCES = 10, expList = document.getElementById('expList'), addExpBtn = document.getElementById('addExp');
+        function renumberExperiences() { [...expList.children].forEach((item, i) => { item.querySelector('.exp-head strong').textContent = 'Experience ' + (i + 1) + (i === 0 ? ' (most recent)' : ''); item.querySelectorAll('textarea').forEach(t => { t.id = t.dataset.kind + (i + 1); t.previousElementSibling.htmlFor = t.id }) }); addExpBtn.hidden = expList.children.length >= MAX_EXPERIENCES; updateProgress() }
+        function addExperience() {
+            const item = document.createElement('div'); item.className = 'exp-item';
+            item.innerHTML = '<div class="exp-head"><strong></strong><button class="exp-remove" type="button">Remove</button></div>' +
+                '<div class="field"><label>Company name, total years served, roles &amp; responsibilities <span>(Optional)</span></label><textarea data-kind="expDetails" maxlength="2000" placeholder="e.g. ABC Studio · 2 years 4 months (Jan 2022 – Apr 2024)&#10;Role: Graphic Designer&#10;Responsibilities: brand identities, social media creatives, print layouts, client coordination…"></textarea></div>' +
+                '<div class="field"><label>Tools used &amp; learnings <span>(Optional)</span></label><textarea data-kind="expTools" maxlength="2000" placeholder="e.g. Figma, Photoshop, Illustrator. Learned to manage multiple client brands and deliver under tight deadlines…"></textarea></div>';
+            item.querySelector('.exp-remove').addEventListener('click', () => { item.remove(); if (!expList.children.length) addExperience(); else renumberExperiences(); updateStepAlert(); saveDraft() });
+            expList.append(item); renumberExperiences();
+            return item;
+        }
+        addExpBtn.addEventListener('click', () => { const item = addExperience(); item.scrollIntoView({ behavior: 'smooth', block: 'center' }); item.querySelector('textarea').focus({ preventScroll: true }) });
+
+        function readFile(input) { const f = input.files[0]; if (!f) return Promise.resolve(null); return new Promise((resolve, reject) => { const r = new FileReader(); r.onload = () => resolve({ name: f.name, data: String(r.result).split(',')[1] }); r.onerror = () => reject(r.error); r.readAsDataURL(f) }) }
+        const actionButtons = [...form.querySelectorAll('.step-nav button, #addExp')];
+        let activeBtn = null;
+        function setBusy(btn) { activeBtn = btn; btn.dataset.label = btn.innerHTML; actionButtons.forEach(b => b.disabled = true); btn.textContent = 'Submitting…'; btn.classList.add('is-loading') }
+        function showError(msg) { steps[currentStep].querySelector('.step-nav').before(formError); formError.textContent = msg; formError.style.display = 'block'; actionButtons.forEach(b => b.disabled = false); if (activeBtn) { activeBtn.classList.remove('is-loading'); activeBtn.innerHTML = activeBtn.dataset.label; activeBtn = null } formError.scrollIntoView({ behavior: 'smooth', block: 'center' }) }
+        async function submitForm(btn, withExperience) {
+            formError.style.display = 'none';
+            // Re-check earlier steps in case something changed, and send the candidate back to the first step with a problem
+            for (const n of withExperience ? [1, 2, 3] : [1, 2]) { if (!stepFields(n).every(el => el.checkValidity())) { if (n !== currentStep) goToStep(n); setTimeout(() => validateStep(n), 300); return } }
+            if (SCRIPT_URL.startsWith('PASTE')) { showError('This form is not connected yet. Please contact The ArtLogic HR team.'); return }
+            setBusy(btn);
+            try {
+                const [cv, coverLetter] = await Promise.all([readFile(document.getElementById('resume')), readFile(document.getElementById('coverLetter'))]);
+                const experiences = withExperience ? [...expList.children].map(item => ({ details: item.querySelector('[data-kind=expDetails]').value.trim(), tools: item.querySelector('[data-kind=expTools]').value.trim() })).filter(x => x.details || x.tools) : [];
+                const payload = { fullName: val('name'), email: val('email'), mobile: val('mobile'), department: val('department'), position: val('role'), designation: val('designation'), experience: val('experience'), notice: val('notice'), currentCtc: val('currentSalary'), expectedCtc: val('expectedSalary'), location: val('location'), linkedin: val('linkedin'), portfolio: val('portfolio'), facebook: val('facebook'), instagram: val('instagram'), summary: val('summary'), experiences, website: val('website'), cv, coverLetter };
+                const res = await fetch(SCRIPT_URL, { method: 'POST', body: JSON.stringify(payload) }); const out = await res.json();
+                if (!out.ok) { showError(out.error || 'Something went wrong while saving your profile. Please try again.'); return }
+                showConfirmation(experiences.length);
+            }
+            catch (err) { showError('Your profile could not be sent. Please check your internet connection and try again.') }
+        }
+        function showConfirmation(expCount) {
+            const name = val('name').replace(/\s+/g, ' ');
+            document.getElementById('doneName').textContent = name ? ', ' + name : '';
+            clearDraft();
+            document.querySelector('.hero').classList.add('compact'); stepper.hidden = false;
+            form.hidden = true; currentStep = 4; stepItems.forEach(li => { li.classList.remove('current'); li.classList.add('done'); li.removeAttribute('aria-current') });
+            updateProgress();
+            successMsg.hidden = false; successMsg.focus({ preventScroll: true }); successMsg.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        document.getElementById('submitNow').addEventListener('click', e => { if (validateStep(2)) submitForm(e.currentTarget, false) });
+        document.getElementById('submitFinal').addEventListener('click', e => { if (validateStep(3)) submitForm(e.currentTarget, true) });
+
+        // Draft autosave on this device, so a refresh, lost connection, Back button or closed tab does not lose anything.
+        // Saves every answer, the experience entries, the current page and the captcha; the CV / cover letter go to IndexedDB.
+        // Cleared after a successful submit or with "Start over".
+        const DRAFT_KEY = 'tal-candidate-draft-v1';
+        // localStorage, then sessionStorage, then window.name (survives a refresh even where storage is blocked, e.g. private mode or an embedded page)
+        const draftStore = (() => {
+            for (const type of ['localStorage', 'sessionStorage']) {
+                try { const s = window[type]; s.setItem(DRAFT_KEY + '-test', '1'); s.removeItem(DRAFT_KEY + '-test'); return { get: () => s.getItem(DRAFT_KEY), set: v => s.setItem(DRAFT_KEY, v), clear: () => s.removeItem(DRAFT_KEY) } } catch (e) { }
+            }
+            return { get: () => window.name.startsWith(DRAFT_KEY) ? window.name.slice(DRAFT_KEY.length) : null, set: v => { window.name = DRAFT_KEY + v }, clear: () => { if (window.name.startsWith(DRAFT_KEY)) window.name = '' } };
+        })();
+        // Uploaded files (up to 5 MB each) kept in IndexedDB; every call resolves to null instead of failing if IndexedDB is unavailable
+        const fileStore = (() => {
+            let dbPromise;
+            const open = () => dbPromise || (dbPromise = new Promise((resolve, reject) => { const r = indexedDB.open('tal-candidate-files', 1); r.onupgradeneeded = () => r.result.createObjectStore('files'); r.onsuccess = () => resolve(r.result); r.onerror = () => reject(r.error) }));
+            const run = (mode, fn) => open().then(db => new Promise((resolve, reject) => { const tx = db.transaction('files', mode), req = fn(tx.objectStore('files')); tx.oncomplete = () => resolve(req.result); tx.onerror = () => reject(tx.error) })).catch(() => null);
+            return { get: id => run('readonly', s => s.get(id)), put: (id, v) => run('readwrite', s => s.put(v, id)), remove: id => run('readwrite', s => s.delete(id)), clear: () => run('readwrite', s => s.clear()) };
+        })();
+        let restoring = true; // no saving until the saved draft has been put back
+        const draftFields = () => [...form.querySelectorAll('input[id],select[id],textarea[id]')].filter(el => el.type !== 'file' && el.id !== 'captcha' && el.id !== 'website' && !el.dataset.kind);
+        function saveDraft() {
+            clearTimeout(saveTimer);
+            if (restoring || form.hidden) return;
+            try {
+                const d = { fields: {}, step: currentStep, experiences: [...expList.children].map(item => ({ details: item.querySelector('[data-kind=expDetails]').value, tools: item.querySelector('[data-kind=expTools]').value })), captcha: { q: captchaQ.textContent, a: captchaAnswer, v: captchaInput.value } };
+                draftFields().forEach(el => { if (el.value) d.fields[el.id] = el.value });
+                draftStore.set(JSON.stringify(d));
+            } catch (e) { }
+        }
+        function clearDraft() { try { draftStore.clear() } catch (e) { } return fileStore.clear() }
+        let saveTimer; const queueSave = () => { clearTimeout(saveTimer); saveTimer = setTimeout(saveDraft, 300) };
+        form.addEventListener('input', queueSave); form.addEventListener('change', queueSave);
+        form.addEventListener('click', e => { if (e.target.closest('button')) queueSave() }); // page changes, add/remove experience, new captcha
+        // Save straight away when the page is being left, refreshed or hidden, so the last keystrokes are not lost
+        window.addEventListener('pagehide', saveDraft); window.addEventListener('popstate', queueSave);
+        document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') saveDraft() });
+        Object.keys(fileRules).forEach(id => {
+            const input = document.getElementById(id);
+            input.addEventListener('change', () => { if (restoring) return; const f = input.files[0]; if (f && input.validity.valid) fileStore.put(id, { file: f, name: f.name, type: f.type, lastModified: f.lastModified }); else fileStore.remove(id) });
+        });
+        async function restoreFile(id) {
+            const rec = await fileStore.get(id); if (!rec || !rec.file) return false;
+            try { const dt = new DataTransfer(); dt.items.add(new File([rec.file], rec.name, { type: rec.type, lastModified: rec.lastModified })); const input = document.getElementById(id); input.files = dt.files; input.dispatchEvent(new Event('change', { bubbles: true })); return input.files.length > 0 } catch (e) { return false }
+        }
+        async function restoreDraft() {
+            let d = null; try { d = JSON.parse(draftStore.get()) } catch (e) { }
+            let restored = false;
+            if (d && d.fields) {
+                const allowed = draftFields();
+                Object.keys(d.fields).forEach(id => { const el = document.getElementById(id); if (el && allowed.includes(el)) { el.value = d.fields[id]; el.dispatchEvent(new Event('input', { bubbles: true })); restored = restored || el.value !== '' } });
+                (Array.isArray(d.experiences) ? d.experiences : []).filter(x => x && (x.details || x.tools)).slice(0, MAX_EXPERIENCES).forEach(x => { const item = addExperience(); item.querySelector('[data-kind=expDetails]').value = x.details || ''; item.querySelector('[data-kind=expTools]').value = x.tools || ''; restored = true });
+                const c = d.captcha; if (c && /^\d+ [+−×] \d+ = \?$/.test(c.q) && Number.isInteger(c.a)) { captchaQ.textContent = c.q; captchaAnswer = c.a; captchaInput.value = String(c.v || '').replace(/\D/g, '').slice(0, 3); checkCaptcha() }
+            }
+            const [cvBack, coverBack] = await Promise.all([restoreFile('resume'), restoreFile('coverLetter')]);
+            restored = restored || cvBack || coverBack;
+            // Reopen the page they were on, unless an earlier page is incomplete (e.g. the CV could not be restored)
+            let target = d && [1, 2, 3].includes(d.step) ? d.step : 1;
+            for (let n = 1; n < target; n++) { if (!stepFields(n).every(el => el.checkValidity())) { target = n; break } }
+            if (target === 3 && !expList.children.length) addExperience();
+            if (target > 1) { history.replaceState({ step: target }, ''); goToStep(target, true) }
+            if (restored) {
+                document.getElementById('restoredText').textContent = 'Welcome back! We restored your answers from last time.' + (document.getElementById('resume').files.length ? '' : ' Please attach your CV again.');
+                document.getElementById('restoredNote').hidden = false;
+            }
+            updateProgress(); restoring = false; saveDraft();
+        }
+        document.getElementById('startOver').addEventListener('click', async () => { restoring = true; await clearDraft(); location.reload() });
+        restoreDraft();
+        updateProgress();
+
+    </script>
+</body>
+
+</html>
