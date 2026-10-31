@@ -2096,9 +2096,9 @@
         summary.addEventListener('input', () => { const words = (summary.value.trim().match(/\S+/g) || []).length; summaryCount.textContent = words + (words === 1 ? ' word' : ' words') + (words < 100 ? ' · aim for 100–150' : words <= 150 ? ' · great length' : ' · a little long, that’s okay'); summaryCount.classList.toggle('good', words >= 100 && words <= 150); summaryCount.classList.toggle('long', words > 150) });
         // Mobile number: digits only, max 10
         const mobileInput = document.getElementById('mobile'); mobileInput.addEventListener('input', () => { const digits = mobileInput.value.replace(/\D/g, '').slice(0, 10); if (mobileInput.value !== digits) mobileInput.value = digits });
-        // Simple math captcha: addition, subtraction (never negative) or small multiplication
+        // Simple math captcha: addition or subtraction (never negative)
         const captchaInput = document.getElementById('captcha'), captchaQ = document.getElementById('captchaQ'); let captchaAnswer = 0;
-        function newCaptcha() { const r = n => Math.floor(Math.random() * n) + 1, type = Math.floor(Math.random() * 3); let a, b, op; if (type === 0) { a = r(20); b = r(20); op = '+'; captchaAnswer = a + b } else if (type === 1) { a = r(20); b = r(a); op = '−'; captchaAnswer = a - b } else { a = r(9); b = r(9); op = '×'; captchaAnswer = a * b } captchaQ.textContent = a + ' ' + op + ' ' + b + ' = ?'; captchaInput.value = ''; captchaInput.setCustomValidity(''); captchaInput.classList.remove('invalid') }
+        function newCaptcha() { const r = n => Math.floor(Math.random() * n) + 1, type = Math.floor(Math.random() * 2); let a, b, op; if (type === 0) { a = r(20); b = r(20); op = '+'; captchaAnswer = a + b } else { a = r(20); b = r(a); op = '−'; captchaAnswer = a - b } captchaQ.textContent = a + ' ' + op + ' ' + b + ' = ?'; captchaInput.value = ''; captchaInput.setCustomValidity(''); captchaInput.classList.remove('invalid') }
         function checkCaptcha() { const v = captchaInput.value.trim(); captchaInput.setCustomValidity(v && Number(v) !== captchaAnswer ? 'Incorrect answer. Please try again.' : '') }
         captchaInput.addEventListener('input', () => { captchaInput.value = captchaInput.value.replace(/\D/g, ''); checkCaptcha() });
         document.getElementById('captchaRefresh').addEventListener('click', () => { newCaptcha(); captchaInput.focus() }); newCaptcha();
@@ -2271,7 +2271,7 @@
                 const allowed = draftFields();
                 Object.keys(d.fields).forEach(id => { const el = document.getElementById(id); if (el && allowed.includes(el)) { el.value = d.fields[id]; el.dispatchEvent(new Event('input', { bubbles: true })); restored = restored || el.value !== '' } });
                 (Array.isArray(d.experiences) ? d.experiences : []).filter(x => x && (x.details || x.tools)).slice(0, MAX_EXPERIENCES).forEach(x => { const item = addExperience(); item.querySelector('[data-kind=expDetails]').value = x.details || ''; item.querySelector('[data-kind=expTools]').value = x.tools || ''; restored = true });
-                const c = d.captcha; if (c && /^\d+ [+−×] \d+ = \?$/.test(c.q) && Number.isInteger(c.a)) { captchaQ.textContent = c.q; captchaAnswer = c.a; captchaInput.value = String(c.v || '').replace(/\D/g, '').slice(0, 3); checkCaptcha() }
+                const c = d.captcha; if (c && /^\d+ [+−] \d+ = \?$/.test(c.q) && Number.isInteger(c.a)) { captchaQ.textContent = c.q; captchaAnswer = c.a; captchaInput.value = String(c.v || '').replace(/\D/g, '').slice(0, 3); checkCaptcha() }
             }
             const [cvBack, coverBack] = await Promise.all([restoreFile('resume'), restoreFile('coverLetter')]);
             restored = restored || cvBack || coverBack;
